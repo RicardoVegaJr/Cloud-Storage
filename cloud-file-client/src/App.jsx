@@ -1,7 +1,9 @@
+import Main from "./components/Main"
+
 function App() {
   return (
     <div>
-      <h1>Cloud File Storage</h1>
+      <Main />
     </div>
   );
 }
