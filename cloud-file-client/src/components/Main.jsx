@@ -2,7 +2,7 @@ import "../../blocks/Main.css";
 import MainWallpaper from "../assets/HomeWallpaper.jpg";
 import Login from "./Login";
 
-function Main({
+function Main({ onLogin
 }) {
   return (
     <main className="main-page">
@@ -14,7 +14,7 @@ function Main({
         />
       </div>
        <h1 className="main_title">Cloud File Storage</h1>
-       <Login />
+       <Login onLogin={onLogin} />
     </main>
   );
 }
