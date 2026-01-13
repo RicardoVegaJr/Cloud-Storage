@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import '../../blocks/Login.css';
 
-function Login({ onLogin }) {
+function Login({ onLogin, onSwitchToSignup }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here, e.g., call onLogin(username, password)
-    if (onLogin) {
       onLogin(username, password);
-    }
   };
 
   return (
@@ -38,6 +36,7 @@ function Login({ onLogin }) {
           />
         </div>
         <button type="submit" className="login-button">Login</button>
+        <p className="switch-link">or <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToSignup(); }}>Signup</a></p>
       </form>
     </div>
   );

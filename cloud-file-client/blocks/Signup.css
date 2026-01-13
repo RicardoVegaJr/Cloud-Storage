@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.login-form {
+.signup-form {
   background: white;
   padding: 2rem;
   border-radius: 10px;
@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 
-.login-title {
+.signup-title {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #333;
@@ -56,7 +56,7 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.login-button {
+.signup-button {
   padding: 0.75rem;
   background: #007bff;
   color: white;
@@ -69,27 +69,17 @@
   width: 100%;
 }
 
-.login-button:hover {
+.signup-button:hover {
   background: #0056b3;
 }
 
-.login-button:active {
+.signup-button:active {
   transform: translateY(1px);
 }
 
 .switch-link {
   text-align: center;
   margin-top: 1rem;
-  font-size: 0.9rem;
   color: #555;
-}
-
-.switch-link a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.switch-link a:hover {
-  text-decoration: underline;
+  font-size: 0.9rem;
 }
