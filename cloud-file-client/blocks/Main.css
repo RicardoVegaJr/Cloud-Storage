@@ -37,3 +37,66 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
+
+.form-wrapper {
+  position: relative;
+}
+
+.login-section,
+.signup-section {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.show-login .login-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.show-signup .signup-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.info-modal {
+  position: fixed;
+  top: 20%;
+  right: 150px;
+  width: 300px;
+  max-height: 60vh;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  z-index: 1500;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.info-modal h2 {
+  margin-top: 0;
+  color: #007bff;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.info-modal p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.info-modal ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.info-modal li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.info-modal strong {
+  color: #007bff;
+}
