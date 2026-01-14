@@ -8,6 +8,7 @@ import React, { useState } from "react";
 function Main({ onLogin
 }) {
   const [form, setForm] = useState('login');
+  const [showModal, setShowModal] = useState(true);
 
 
   const onSwitchToSignup = () => {
@@ -24,7 +25,6 @@ function Main({ onLogin
           alt="Main Wallpaper"
         />
       </div>
-       <h1 className="main_title">Cloud File Storage</h1>
        <div className={`form-wrapper ${form === 'login' ? 'show-login' : 'show-signup'}`}>
          <div className="login-section">
            <Login onLogin={onLogin} onSwitchToSignup={onSwitchToSignup} />
@@ -33,10 +33,12 @@ function Main({ onLogin
            <Signup onSwitchToSignup={onSwitchToSignup}/>
          </div>
        </div>
-       <div className="info-modal">
-         <h2>Cloud Storage Web App</h2>
-         <p>Our cloud storage web app offers a comprehensive solution for managing your files securely and efficiently. Key capabilities include:</p>
-         <ul>
+       {showModal && (
+         <div className="info-modal">
+           <button className="close-button" onClick={() => setShowModal(false)}>&times;</button>
+           <h2>Cloud Storage Web App</h2>
+           <p>Our cloud storage web app offers a comprehensive solution for managing your files securely and efficiently. Key capabilities include:</p>
+           <ul>
            <li><strong>Secure File Storage:</strong> Store your files in the cloud with advanced encryption to ensure data privacy and protection.</li>
            <li><strong>Easy Upload and Download:</strong> Seamlessly upload files from your device and download them anytime, anywhere.</li>
            <li><strong>File Organization:</strong> Create folders, organize files, and use search functionality to find what you need quickly.</li>
@@ -46,7 +48,9 @@ function Main({ onLogin
            <li><strong>Version Control:</strong> Keep track of file versions and restore previous versions if needed.</li>
            <li><strong>High Performance:</strong> Fast upload and download speeds with reliable uptime.</li>
          </ul>
-       </div>
+         <p className="summary">Experience secure cloud storage with file organization, cross-device access, collaboration tools, automatic backup, version control, and high-performance operations for all your file management needs.</p>
+         </div>
+       )}
        <Footer />
     </main>
   );
