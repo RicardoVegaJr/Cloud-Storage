@@ -3,6 +3,7 @@ import MainWallpaper from "../assets/HomeWallpaper.jpg";
 import Login from "./Login";
 import Signup from "./Signup";
 import Footer from "./Footer";
+import Header from "./Header";
 import React, { useState } from "react";
 
 function Main({ onLogin
@@ -17,7 +18,9 @@ function Main({ onLogin
 
 
   return (
-    <main className="main-page">
+    <>
+      <Header />
+      <main className="main-page">
       <div className="main-page__image-wrapper">
         <img
           src={MainWallpaper}
@@ -53,6 +56,7 @@ function Main({ onLogin
        )}
        <Footer />
     </main>
+    </>
   );
 }
 
