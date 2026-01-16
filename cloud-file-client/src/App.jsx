@@ -1,15 +1,22 @@
-import Main from "./components/Main"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./components/Main";
+import Dashboard from "./components/Dashboard";
 
 
-const onLogin = (username, password) => {
-  console.log(username, password);
-};
 
 function App() {
+
+const onLogin = () => {
+    navigate("/dashboard");
+  };
+
   return (
-    <div>
-      <Main onLogin={onLogin} />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main onLogin={onLogin} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
