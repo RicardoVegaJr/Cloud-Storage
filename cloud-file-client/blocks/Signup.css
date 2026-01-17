@@ -20,6 +20,7 @@
   max-width: 300px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .signup-title {
@@ -82,4 +83,14 @@
   margin-top: 1rem;
   color: #555;
   font-size: 0.9rem;
+}
+
+.switch-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
 }

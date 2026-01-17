@@ -11,6 +11,28 @@
   z-index: 1000;
 }
 
+.modal-close-button {
+  position: absolute;
+  top: 400px;
+  right: 1050px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.modal-close-button:hover {
+  color: #333;
+}
+
 .login-form {
   background: white;
   padding: 2rem;
@@ -20,6 +42,7 @@
   max-width: 300px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .login-title {

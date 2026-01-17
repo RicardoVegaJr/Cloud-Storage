@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../blocks/Signup.css';
 
-function Signup({ onSignup, onSwitchToSignup }) {
+function Signup({ onSignup, onSwitchToSignup, onClose }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -14,6 +14,7 @@ function Signup({ onSignup, onSwitchToSignup }) {
 
   return (
     <div className="signup-container">
+      <button className="modal-close-button" onClick={onClose} aria-label="Close modal">&times;</button>
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2 className="signup-title">Signup</h2>
         <div className="input-group">

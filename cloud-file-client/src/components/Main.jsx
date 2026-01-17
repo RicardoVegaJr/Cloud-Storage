@@ -9,6 +9,7 @@ import React, { useState } from "react";
 function Main({ onLogin
 }) {
   const [form, setForm] = useState('login');
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const [showModal, setShowModal] = useState(true);
 
 
@@ -16,10 +17,24 @@ function Main({ onLogin
     setForm(form === 'login' ? 'signup' : 'login');
   };
 
+  const handleLoginClick = () => {
+    setForm('login');
+    setShowAuthModal(true);
+  };
+
+  const handleSignupClick = () => {
+    setForm('signup');
+    setShowAuthModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowAuthModal(false);
+  };
+
 
   return (
     <>
-      <Header />
+      <Header onLoginClick={handleLoginClick} onSignupClick={handleSignupClick} />
       <main className="main-page">
       <div className="main-page__image-wrapper">
         <img
@@ -28,14 +43,16 @@ function Main({ onLogin
           alt="Main Wallpaper"
         />
       </div>
-       <div className={`form-wrapper ${form === 'login' ? 'show-login' : 'show-signup'}`}>
-         <div className="login-section">
-           <Login onLogin={onLogin} onSwitchToSignup={onSwitchToSignup} />
+       {showAuthModal && (
+         <div className={`form-wrapper ${form === 'login' ? 'show-login' : 'show-signup'}`}>
+           <div className="login-section">
+             <Login onLogin={onLogin} onSwitchToSignup={onSwitchToSignup} onClose={handleCloseModal} />
+           </div>
+           <div className="signup-section">
+             <Signup onSwitchToSignup={onSwitchToSignup} onClose={handleCloseModal}/>
+           </div>
          </div>
-         <div className="signup-section">
-           <Signup onSwitchToSignup={onSwitchToSignup}/>
-         </div>
-       </div>
+       )}
        {showModal && (
          <div className="info-modal">
            <button className="close-button" onClick={() => setShowModal(false)}>&times;</button>

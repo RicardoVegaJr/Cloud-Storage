@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../blocks/Login.css';
 
-function Login({ onLogin, onSwitchToSignup }) {
+function Login({ onLogin, onSwitchToSignup, onClose }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,6 +13,7 @@ function Login({ onLogin, onSwitchToSignup }) {
 
   return (
     <div className="login-container">
+      <button className="modal-close-button" onClick={onClose} aria-label="Close modal">&times;</button>
       <form className="login-form" onSubmit={handleSubmit}>
         <h2 className="login-title">Login</h2>
         <div className="input-group">
