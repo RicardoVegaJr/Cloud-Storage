@@ -4,6 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Footer from "./Footer";
 import Header from "./Header";
+import AboutMe from "./AboutMe";
 import React, { useState } from "react";
 
 function Main({ onLogin
@@ -53,6 +54,7 @@ function Main({ onLogin
            </div>
          </div>
        )}
+       <AboutMe isOpen={showModal} onClose={() => setShowModal(false)} />
        {showModal && (
          <div className="info-modal">
            <button className="close-button" onClick={() => setShowModal(false)}>&times;</button>

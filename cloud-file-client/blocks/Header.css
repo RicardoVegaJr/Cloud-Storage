@@ -6,6 +6,7 @@
   background: linear-gradient(135deg, #667eea 0%, #1b0d50 100%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
+  z-index: 10001;
 }
 
 .header-title {

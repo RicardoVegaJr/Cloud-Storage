@@ -1,4 +1,4 @@
-.login-container {
+.modal-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,10 +11,23 @@
   z-index: 10001;
 }
 
+.modal-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 3rem;
+}
+
 .modal-close-button {
   position: absolute;
-  top: 150px;
-  right: 520px;
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
   font-size: 2rem;
@@ -33,19 +46,7 @@
   color: #333;
 }
 
-.login-form {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.login-title {
+.modal-title {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #333;
@@ -77,27 +78,6 @@
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.login-button {
-  padding: 0.75rem;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: 100%;
-}
-
-.login-button:hover {
-  background: #0056b3;
-}
-
-.login-button:active {
-  transform: translateY(1px);
 }
 
 .switch-link {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ModalForm from './ModalForm';
 import '../../blocks/Login.css';
 
 function Login({ onLogin, onSwitchToSignup, onClose }) {
@@ -8,38 +9,34 @@ function Login({ onLogin, onSwitchToSignup, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here, e.g., call onLogin(username, password)
-      onLogin(username, password);
+    onLogin(username, password);
   };
 
   return (
-    <div className="login-container">
-      <button className="modal-close-button" onClick={onClose} aria-label="Close modal">&times;</button>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="login-title">Login</h2>
-        <div className="input-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="login-button">Login</button>
-        <p className="switch-link">or <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToSignup(); }}>Signup</a></p>
-      </form>
-    </div>
+    <ModalForm title="Login" onClose={onClose} onSubmit={handleSubmit} formClassName="login-form">
+      <div className="input-group">
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </div>
+      <div className="input-group">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit" className="login-button">Login</button>
+      <p className="switch-link">or <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToSignup(); }}>Signup</a></p>
+    </ModalForm>
   );
 }
 

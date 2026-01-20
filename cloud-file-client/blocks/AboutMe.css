@@ -1,0 +1,114 @@
+.aboutme-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1000;
+  padding-left: 20px;
+}
+
+.aboutme-modal {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.aboutme-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.aboutme-close-button:hover {
+  color: #333;
+}
+
+.aboutme-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.aboutme-image-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.aboutme-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-placeholder-text {
+  position: absolute;
+  color: #999;
+  font-size: 0.9rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.aboutme-text h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.aboutme-text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .aboutme-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .aboutme-modal {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .aboutme-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .aboutme-text p {
+    font-size: 0.95rem;
+  }
+}
