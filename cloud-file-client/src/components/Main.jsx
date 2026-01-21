@@ -32,10 +32,14 @@ function Main({ onLogin
     setShowAuthModal(false);
   };
 
+  const handleAboutMeClick = () => {
+    setShowModal(true);
+  };
+
 
   return (
     <>
-      <Header onLoginClick={handleLoginClick} onSignupClick={handleSignupClick} />
+      <Header onLoginClick={handleLoginClick} onSignupClick={handleSignupClick} onAboutMeClick={handleAboutMeClick} />
       <main className="main-page">
       <div className="main-page__image-wrapper">
         <img

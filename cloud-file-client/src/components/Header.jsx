@@ -1,7 +1,7 @@
 import '../../blocks/Header.css';
 import { useState } from 'react';
 
-export default function Header({ onLoginClick, onSignupClick }) {
+export default function Header({ onLoginClick, onSignupClick, onAboutMeClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -18,6 +18,11 @@ export default function Header({ onLoginClick, onSignupClick }) {
     setIsMenuOpen(false);
   };
 
+  const handleAboutMeClick = () => {
+    onAboutMeClick();
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="header">
       <h1 className="header-title">Cloud File Client</h1>
@@ -31,6 +36,7 @@ export default function Header({ onLoginClick, onSignupClick }) {
           <ul className="menu-list">
             <li><button className="menu-item" onClick={handleLoginClick}>Login</button></li>
             <li><button className="menu-item" onClick={handleSignupClick}>Signup</button></li>
+            <li><button className="menu-item" onClick={handleAboutMeClick}>About Me</button></li>
           </ul>
         </nav>
       )}

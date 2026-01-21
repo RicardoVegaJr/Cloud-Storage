@@ -93,6 +93,27 @@
   text-align: justify;
 }
 
+@media (max-width: 1344px) {
+  .aboutme-modal {
+    max-width: 350px;
+    padding: 35px 25px;
+  }
+
+  .aboutme-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .aboutme-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 1227px) {
+  .aboutme-container {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .aboutme-container {
     padding-left: 10px;
