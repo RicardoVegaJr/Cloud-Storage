@@ -7,8 +7,7 @@ import Header from "./Header";
 import AboutMe from "./AboutMe";
 import React, { useState } from "react";
 
-function Main({ onLogin
-}) {
+function Main({ onLogin, onSignup }) {
   const [form, setForm] = useState('login');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showModal, setShowModal] = useState(true);
@@ -54,7 +53,7 @@ function Main({ onLogin
              <Login onLogin={onLogin} onSwitchToSignup={onSwitchToSignup} onClose={handleCloseModal} />
            </div>
            <div className="signup-section">
-             <Signup onSwitchToSignup={onSwitchToSignup} onClose={handleCloseModal}/>
+             <Signup onSignup={onSignup} onSwitchToSignup={onSwitchToSignup} onClose={handleCloseModal} />
            </div>
          </div>
        )}

@@ -22,13 +22,13 @@ describe('Login Component', () => {
     );
 
     expect(screen.getByText('Login')).toBeInTheDocument();
-    expect(screen.getByLabelText('Username')).toBeInTheDocument();
+    expect(screen.getByLabelText('Email')).toBeInTheDocument();
     expect(screen.getByLabelText('Password')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Login' })).toBeInTheDocument();
     expect(screen.getByText(/Signup/)).toBeInTheDocument();
   });
 
-  test('should update username input when user types', async () => {
+  test('should update email input when user types', async () => {
     const user = userEvent.setup();
     render(
       <Login 
@@ -38,10 +38,10 @@ describe('Login Component', () => {
       />
     );
 
-    const usernameInput = screen.getByLabelText('Username');
-    await user.type(usernameInput, 'test@test.com');
+    const emailInput = screen.getByLabelText('Email');
+    await user.type(emailInput, 'test@test.com');
 
-    expect(usernameInput).toHaveValue('test@test.com');
+    expect(emailInput).toHaveValue('test@test.com');
   });
 
   test('should update password input when user types', async () => {
@@ -60,7 +60,7 @@ describe('Login Component', () => {
     expect(passwordInput).toHaveValue('password123');
   });
 
-  test('should call onLogin with username and password when form is submitted', async () => {
+  test('should call onLogin with email and password when form is submitted', async () => {
     const user = userEvent.setup();
     render(
       <Login 
@@ -70,11 +70,11 @@ describe('Login Component', () => {
       />
     );
 
-    const usernameInput = screen.getByLabelText('Username');
+    const emailInput = screen.getByLabelText('Email');
     const passwordInput = screen.getByLabelText('Password');
     const loginButton = screen.getByRole('button', { name: 'Login' });
 
-    await user.type(usernameInput, 'test@test.com');
+    await user.type(emailInput, 'test@test.com');
     await user.type(passwordInput, 'password');
     await user.click(loginButton);
 
@@ -116,7 +116,7 @@ describe('Login Component', () => {
     expect(mockOnSwitchToSignup).toHaveBeenCalledTimes(1);
   });
 
-  test('should have required attribute on username input', () => {
+  test('should have required attribute on email input', () => {
     render(
       <Login 
         onLogin={mockOnLogin} 
@@ -125,8 +125,8 @@ describe('Login Component', () => {
       />
     );
 
-    const usernameInput = screen.getByLabelText('Username');
-    expect(usernameInput).toBeRequired();
+    const emailInput = screen.getByLabelText('Email');
+    expect(emailInput).toBeRequired();
   });
 
   test('should have required attribute on password input', () => {
@@ -164,10 +164,10 @@ describe('Login Component', () => {
       />
     );
 
-    const usernameInput = screen.getByLabelText('Username');
+    const emailInput = screen.getByLabelText('Email');
     const passwordInput = screen.getByLabelText('Password');
 
-    expect(usernameInput).toHaveValue('');
+    expect(emailInput).toHaveValue('');
     expect(passwordInput).toHaveValue('');
   });
 });

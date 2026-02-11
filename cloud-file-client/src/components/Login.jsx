@@ -3,24 +3,30 @@ import ModalForm from './ModalForm';
 import '../../blocks/Login.css';
 
 function Login({ onLogin, onSwitchToSignup, onClose }) {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here, e.g., call onLogin(username, password)
-    onLogin(username, password);
+    setError('');
+    try {
+      await onLogin(email, password);
+      onClose();
+    } catch (err) {
+      setError(err.message || 'Login failed');
+    }
   };
 
   return (
     <ModalForm title="Login" onClose={onClose} onSubmit={handleSubmit} formClassName="login-form">
       <div className="input-group">
-        <label htmlFor="username">Username</label>
+        <label htmlFor="email">Email</label>
         <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
@@ -35,6 +41,7 @@ function Login({ onLogin, onSwitchToSignup, onClose }) {
         />
       </div>
       <button type="submit" className="login-button">Login</button>
+      {error && <p className="form-error">{error}</p>}
       <p className="switch-link">or <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToSignup(); }}>Signup</a></p>
     </ModalForm>
   );
