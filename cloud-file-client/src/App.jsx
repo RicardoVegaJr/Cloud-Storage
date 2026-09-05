@@ -1,14 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Main from "./components/Main";
+import Dashboard from "./components/Dashboard";
 import { authorize, checkToken, register } from "./auth/auth";
-// import Dashboard from "./components/Dashboard";
 
-function App() {
+function AppRoutes() {
+  const navigate = useNavigate();
+
   const onLogin = async (email, password) => {
     const result = await authorize(email, password);
     if (result && result.token) {
       localStorage.setItem("token", result.token);
       await checkToken(result.token);
+      navigate("/dashboard");
     }
     return result;
   };
@@ -18,16 +21,23 @@ function App() {
     if (result && result.token) {
       localStorage.setItem("token", result.token);
       await checkToken(result.token);
+      navigate("/dashboard");
     }
     return result;
   };
 
   return (
+    <Routes>
+      <Route path="/" element={<Main onLogin={onLogin} onSignup={onSignup} />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main onLogin={onLogin} onSignup={onSignup} />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
